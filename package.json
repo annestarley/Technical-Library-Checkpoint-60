@@ -1,0 +1,31 @@
+{
+  "name": "technical-library-checkpoint-60",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annestarley/Technical-Library-Checkpoint-60.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annestarley/Technical-Library-Checkpoint-60/issues"
+  },
+  "homepage": "https://github.com/annestarley/Technical-Library-Checkpoint-60#readme",
+  "dependencies": {
+    "body": "^5.1.0",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "parser": "^0.1.4",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
