@@ -2,9 +2,6 @@ const uuid = require('uuid/v4')
 const fs = require('fs')
 const books = require('./books.json')
 const authors = require('./authors.json')
-console.log(books)
-console.log(authors)
-
 function getAllBooks() {
   return books
 }
@@ -77,8 +74,7 @@ function deleteBook(id) {
   const authorsJSON = JSON.stringify(authors)
   fs.writeFileSync('./books.json', booksJSON)
   fs.writeFileSync('./authors.json', authorsJSON)
-  console.log("BOOKS", books)
-  console.log("AUTHORS", authors)
+
   return books
 }
 
