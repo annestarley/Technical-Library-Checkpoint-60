@@ -1,9 +1,7 @@
 const uuid = require('uuid/v4')
 const fs = require('fs')
 const books = require('./books.json')
-// let books = JSON.parse(fs.readFileSync('./books.json'))
 const authors = require('./authors.json')
-// let authors = JSON.parse(fs.readFileSync('./authors.json'))
 console.log(books)
 console.log(authors)
 
@@ -63,19 +61,22 @@ function updateBook(id, name, borrowed, description, firstName, lastName) {
   const authorsJSON = JSON.stringify(authors)
   fs.writeFileSync('./books.json', booksJSON)
   fs.writeFileSync('./authors.json', authorsJSON)
-  console.log(book)
-  console.log(author)
 
   return book
 }
 
 function deleteBook(id) {
   const book = getBookById(id)
-  const author = getAuthorById(book.authors[0].id)
+  const author = getAuthorById(book.authors.id)
   const bookIndex = books.indexOf(book)
   const authorIndex = authors.indexOf(author)
   books.splice(bookIndex, 1)
   authors.splice(bookIndex, 1)
+
+  const booksJSON = JSON.stringify(books)
+  const authorsJSON = JSON.stringify(authors)
+  fs.writeFileSync('./books.json', booksJSON)
+  fs.writeFileSync('./authors.json', authorsJSON)
   console.log("BOOKS", books)
   console.log("AUTHORS", authors)
   return books
