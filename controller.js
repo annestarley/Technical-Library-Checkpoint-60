@@ -32,7 +32,6 @@ const bookCreaterController = (req, res, next) => {
 }
 
 const bookUpdaterController = (req, res, next) => {
-  console.log('bookUpdaterController');
   const id = req.params.id
   const book = model.getBookById(id)
   if (!book) return next({ status: 400, message: `Could not find book with id ${id}.`})
