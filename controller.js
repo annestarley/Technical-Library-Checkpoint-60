@@ -25,7 +25,10 @@ const authorByIdController = (req, res, next) => {
 }
 
 const bookCreaterController = (req, res, next) => {
-
+  const { name, borrowed, description, firstName, lastName } = req.body
+  if (!name || !borrowed || !description || !firstName || !lastName) return next({ status: 404, message: `Required: remember to include a book name, borrowed status, description, author first name, and author last name.`})
+  const book = model.createBook(name, borrowed, description, firstName, lastName)
+  res.status(201).json(book)
 }
 
 const bookUpdaterController = (req, res, next) => {

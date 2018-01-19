@@ -61,8 +61,23 @@ function getAuthorById(id) {
   if (author) return author
 }
 
-function createBook(id, name, borrowed, description, authors) {
-
+function createBook(name, borrowed, description, firstName, lastName) {
+  const book = {
+    id: uuid(),
+    name: name,
+    borrowed: borrowed,
+    description: description,
+    authors: {
+      id: uuid(),
+      firstName: firstName,
+      lastName: lastName
+    }
+  }
+  books.push(book)
+  authors.push(book.authors)
+  console.log(books)
+  console.log(authors);
+  return book
 }
 
 module.exports = {
