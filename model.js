@@ -44,8 +44,6 @@ function createBook(name, borrowed, description, firstName, lastName) {
   const authorsJSON = JSON.stringify(authors)
   fs.writeFileSync('./books.json', booksJSON)
   fs.writeFileSync('./authors.json', authorsJSON)
-  console.log(books)
-  console.log(authors);
   return book
 }
 
@@ -61,6 +59,10 @@ function updateBook(id, name, borrowed, description, firstName, lastName) {
   author.firstName = firstName
   author.lastName = lastName
 
+  const booksJSON = JSON.stringify(books)
+  const authorsJSON = JSON.stringify(authors)
+  fs.writeFileSync('./books.json', booksJSON)
+  fs.writeFileSync('./authors.json', authorsJSON)
   console.log(book)
   console.log(author)
 
