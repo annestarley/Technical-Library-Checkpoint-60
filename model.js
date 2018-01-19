@@ -80,10 +80,27 @@ function createBook(name, borrowed, description, firstName, lastName) {
   return book
 }
 
+function updateBook() {
+
+}
+
+function deleteBook(id) {
+  const book = getBookById(id)
+  const author = getAuthorById(book.authors[0].id)
+  const bookIndex = books.indexOf(book)
+  const authorIndex = authors.indexOf(author)
+  books.splice(bookIndex, 1)
+  authors.splice(bookIndex, 1)
+  console.log("BOOKS", books)
+  console.log("AUTHORS", authors)
+  return books
+}
+
 module.exports = {
   getAllBooks,
   getAllAuthors,
   getBookById,
   getAuthorById,
-  createBook
+  createBook,
+  deleteBook
 }

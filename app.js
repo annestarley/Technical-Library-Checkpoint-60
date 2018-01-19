@@ -22,8 +22,8 @@ app.get('/authors', controller.authorsController)
 app.get('/books/:id', controller.bookByIdController)
 app.get('/authors/:id', controller.authorByIdController)
 app.post('/books', controller.bookCreaterController)
-// app.put('/books/:id', controller.bookUpdaterController)
-// app.delete('/books/:id', controller.bookDeleterController)
+app.put('/books/:id', controller.bookUpdaterController)
+app.delete('/books/:id', controller.bookDeleterController)
 
 
 

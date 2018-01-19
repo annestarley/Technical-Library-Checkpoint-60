@@ -36,7 +36,12 @@ const bookUpdaterController = (req, res, next) => {
 }
 
 const bookDeleterController = (req, res, next) => {
+  const id = req.params.id
+  const book = model.getBookById(id)
+  if (!book) return next({ status: 404, message: `Could not find book with id of ${id}.`})
 
+  const newBooksArray = model.deleteBook(id)
+  res.status(204).json(newBooksArray)
 }
 
 module.exports = {
