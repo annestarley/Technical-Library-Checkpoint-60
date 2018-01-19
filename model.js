@@ -80,8 +80,22 @@ function createBook(name, borrowed, description, firstName, lastName) {
   return book
 }
 
-function updateBook() {
+function updateBook(id, name, borrowed, description, firstName, lastName) {
+  const book = getBookById(id)
+  book.name = name
+  book.borrowed = borrowed
+  book.description = description
+  book.authors[0].firstName = firstName
+  book.authors[0].lastName = lastName
 
+  const author = getAuthorById(book.authors[0].id)
+  author.firstName = firstName
+  author.lastName = lastName
+
+  console.log(book)
+  console.log(author)
+
+  return book
 }
 
 function deleteBook(id) {
@@ -102,5 +116,6 @@ module.exports = {
   getBookById,
   getAuthorById,
   createBook,
+  updateBook,
   deleteBook
 }

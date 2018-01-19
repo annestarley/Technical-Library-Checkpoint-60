@@ -32,7 +32,16 @@ const bookCreaterController = (req, res, next) => {
 }
 
 const bookUpdaterController = (req, res, next) => {
+  console.log('bookUpdaterController');
+  const id = req.params.id
+  const book = model.getBookById(id)
+  if (!book) return next({ status: 400, message: `Could not find book with id ${id}.`})
 
+  const { name, borrowed, description, firstName, lastName } = req.body
+  if (!name || !borrowed || !description || !firstName || !lastName) return next({ status: 404, message: `Required: remember to include a book name, borrowed status, description, author first name, and author last name.`})
+
+  const updatedBook = model.updateBook(id, name, borrowed, description, firstName, lastName)
+  res.status(200).json(updatedBook)
 }
 
 const bookDeleterController = (req, res, next) => {
