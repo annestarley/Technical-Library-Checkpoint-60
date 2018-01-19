@@ -1,6 +1,11 @@
 const uuid = require('uuid/v4')
-const books = require('./books')
-const authors = require('./authors')
+const fs = require('fs')
+const books = require('./books.json')
+// let books = JSON.parse(fs.readFileSync('./books.json'))
+const authors = require('./authors.json')
+// let authors = JSON.parse(fs.readFileSync('./authors.json'))
+console.log(books)
+console.log(authors)
 
 function getAllBooks() {
   return books
@@ -34,6 +39,11 @@ function createBook(name, borrowed, description, firstName, lastName) {
   }
   books.push(book)
   authors.push(book.authors)
+
+  const booksJSON = JSON.stringify(books)
+  const authorsJSON = JSON.stringify(authors)
+  fs.writeFileSync('./books.json', booksJSON)
+  fs.writeFileSync('./authors.json', authorsJSON)
   console.log(books)
   console.log(authors);
   return book
